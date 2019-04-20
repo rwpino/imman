@@ -3,34 +3,20 @@ package com.mobiosd.entity;
 public class Commands {
     private String path = null;
     private int bin = 1;
-    private double temperature  = 1;
-
-    /**
-     * @param bin the bin to set
-     */
-    public void setBin(int bin) {
-        this.bin = bin;
-    }
-
-    /**
-     * @param path the path to set
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    /**
-     * @param temperature the temperature to set
-     */
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-    }
+    private double temperature = 1;
 
     /**
      * @return the bin
      */
     public int getBin() {
         return bin;
+    }
+
+    /**
+     * @param bin the bin to set
+     */
+    public void setBin(int bin) {
+        this.bin = bin;
     }
 
     /**
@@ -41,10 +27,24 @@ public class Commands {
     }
 
     /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
      * @return the temperature
      */
     public double getTemperature() {
         return temperature;
+    }
+
+    /**
+     * @param temperature the temperature to set
+     */
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
     @Override

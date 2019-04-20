@@ -1,7 +1,8 @@
 package com.mobiosd;
 
 import com.mobiosd.entity.Commands;
-import com.mobiosd.io.CommandReaders;;
+import com.mobiosd.io.CommandReaders;
+
 
 public class Main {
 

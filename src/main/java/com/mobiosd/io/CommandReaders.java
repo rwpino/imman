@@ -34,7 +34,7 @@ public class CommandReaders {
             } else if (a[0].equals("--temperature")) {
                 commands.setTemperature(Double.parseDouble(a[1]));
             } else {
-                throw new Error("command not found: "+ a[0]);
+                throw new Error("command not found: " + a[0]);
             }
 
         }

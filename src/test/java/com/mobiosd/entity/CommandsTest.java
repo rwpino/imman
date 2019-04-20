@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CommandsTest {
-    Commands commands= new com.mobiosd.entity.Commands();
+    Commands commands = new com.mobiosd.entity.Commands();
+
     @Test
-    public void testSetParameters(){
+    public void testSetParameters() {
         commands.setBin(100);
         commands.setPath("/a/b/c");
         commands.setTemperature(100);
@@ -14,8 +15,9 @@ public class CommandsTest {
         Assert.assertEquals(commands.getTemperature(), new Double(100));
         Assert.assertEquals(commands.getPath(), "/a/b/c");
     }
+
     @Test
-    public void testToString(){
+    public void testToString() {
         commands.setBin(100);
         commands.setPath("/a/b/c");
         commands.setTemperature(100);
