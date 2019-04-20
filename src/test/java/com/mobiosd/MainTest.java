@@ -6,7 +6,7 @@ public class MainTest {
 
     @Test
     public void testMain(){
-        Main.main(new java.lang.String[]{"args"});
+        Main.main(new java.lang.String[]{"--bin=100", "--path='/a/b/c'", "--temperature=100"});
     }
 }
 

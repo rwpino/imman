@@ -11,9 +11,11 @@ public class CommandsTest {
         commands.setBin(100);
         commands.setPath("/a/b/c");
         commands.setTemperature(100);
+        commands.setIgnoreFirst(true);
         Assert.assertEquals(commands.getBin(), 100);
         Assert.assertEquals(commands.getTemperature(), new Double(100));
         Assert.assertEquals(commands.getPath(), "/a/b/c");
+        Assert.assertEquals(commands.getIgnoreFirst(), true);
     }
 
     @Test

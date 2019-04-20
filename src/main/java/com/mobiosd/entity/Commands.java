@@ -4,6 +4,7 @@ public class Commands {
     private String path = null;
     private int bin = 1;
     private double temperature = 1;
+    private boolean ignoreFirst = false;
 
     /**
      * @return the bin
@@ -51,4 +52,10 @@ public class Commands {
     public String toString() {
         return String.format("temperature: %s \n bin: %s \n path: %s \n", this.temperature, this.bin, this.path);
     }
+
+    public void setIgnoreFirst(boolean ignoreFirst) {
+        this.ignoreFirst = ignoreFirst;
+    }
+
+    public boolean getIgnoreFirst() { return ignoreFirst; }
 }

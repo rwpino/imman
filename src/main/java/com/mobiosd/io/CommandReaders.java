@@ -33,7 +33,11 @@ public class CommandReaders {
                 commands.setBin(Integer.parseInt(a[1]));
             } else if (a[0].equals("--temperature")) {
                 commands.setTemperature(Double.parseDouble(a[1]));
-            } else {
+            }
+            else if (a[0].equals("--ignoreFirst")) {
+                commands.setTemperature(Double.parseDouble(a[1]));
+            }
+            else {
                 throw new Error("command not found: " + a[0]);
             }
 
