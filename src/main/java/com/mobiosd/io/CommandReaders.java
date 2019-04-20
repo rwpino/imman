@@ -26,7 +26,6 @@ public class CommandReaders {
                 throw new Error("command malformed");
             }
 
-
             if (a[0].equals("--path")) {
                 commands.setPath(a[1]);
             } else if (a[0].equals("--bin")) {
@@ -35,7 +34,11 @@ public class CommandReaders {
                 commands.setTemperature(Double.parseDouble(a[1]));
             }
             else if (a[0].equals("--ignoreFirst")) {
-                commands.setTemperature(Double.parseDouble(a[1]));
+                commands.setIgnoreFirst(Boolean.parseBoolean(a[1]));
+            } else if (a[0].equals("--k")) {
+                commands.setK(Boolean.parseBoolean(a[1]));
+            }else if (a[0].equals("--z")) {
+                commands.setZ(Boolean.parseBoolean(a[1]));
             }
             else {
                 throw new Error("command not found: " + a[0]);

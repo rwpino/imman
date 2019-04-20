@@ -2,9 +2,19 @@ package com.mobiosd.entity;
 
 public class Commands {
     private String path = null;
-    private int bin = 1;
+    private int bin  = 0;
     private double temperature = 1;
     private boolean ignoreFirst = false;
+    private boolean k = false;
+    private boolean z = false;
+
+    public boolean getZ() {
+        return z;
+    }
+
+    public void setZ(boolean z) {
+        this.z = z;
+    }
 
     /**
      * @return the bin
@@ -57,5 +67,15 @@ public class Commands {
         this.ignoreFirst = ignoreFirst;
     }
 
+    public boolean getK() {
+        return k;
+    }
+
+    public void setK(boolean k) {
+        this.k = k;
+    }
+
     public boolean getIgnoreFirst() { return ignoreFirst; }
+
+
 }

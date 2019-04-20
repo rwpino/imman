@@ -28,6 +28,10 @@ public class Attribute implements Iterable<Double> {
         this.values.add(val);
     }
 
+    public double getValue(int index) {
+        return this.values.get(index);
+    }
+
     public int size() {
         return this.values.size();
     }
