@@ -9,19 +9,19 @@ public class Attribute implements Iterable<Double> {
 
     private String name = null;
     private ArrayList<Double> values = new ArrayList<Double>();
-    private double minimun;
-    private double maximun;
+    private double minimun = Double.POSITIVE_INFINITY;
+    private double maximun = Double.NEGATIVE_INFINITY;
 
-    Attribute( String name ) {
+    public Attribute( String name ) {
     this.name = name;
     }
 
     public void addValue(double val){
-        if(val < this.minimun) {
+        if(val <= this.minimun) {
             this.minimun = val;
         }
 
-        if(val > this.maximun) {
+        if(val >= this.maximun) {
             this.maximun = val;
         }
 
