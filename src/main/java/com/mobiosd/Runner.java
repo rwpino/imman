@@ -19,7 +19,7 @@ public class Runner {
 
         this.set = set;
         this.bin = bin==0 ?set.getAttribute_size(): bin;
-        this.t = t;
+        this.t = t!=0? t: 1;
         this.k = k;
         this.results = new ArrayList<>();
 
@@ -57,6 +57,43 @@ public class Runner {
             double ugz2 = InternalEnergy.UG(uz2, att.size());
             result.addValue("UGZ2",ugz2);
 
+            double hz1 = Enthalpy.H(entropy,z1,this.k,this.t);
+            result.addValue("HZ1",hz1);
+
+            double hz2 = Enthalpy.H(entropy,z2,this.k,this.t);
+            result.addValue("HZ2",hz2);
+
+            double hgz1 = Enthalpy.HG(hz1, att.size());
+            result.addValue("HGZ1",hgz1);
+
+            double hgz2 = InternalEnergy.UG(hz2, att.size());
+            result.addValue("HGZ2",hgz2);
+
+            double gz1 = Gibbs.G(I, hz1, this.t);
+            result.addValue("GZ1",gz1);
+
+            double gz2 = Gibbs.G(I, hz2, this.t);
+            result.addValue("GZ2",gz2);
+
+            double ggz1= Gibbs.GG(gz1, att.size());
+            result.addValue("GGZ1",ggz1);
+
+            double ggz2 = Gibbs.GG(gz2,att.size() );
+            result.addValue("GGZ2",ggz2);
+
+            double az1 = Helmholtz.A(I, uz1, this.t);
+            result.addValue("AZ1",az1);
+
+            double az2 = Helmholtz.A(I, uz2, this.t);
+            result.addValue("AZ2",az2);
+
+            double agz1 = Helmholtz.AG(az1,att.size());
+            result.addValue("AGZ1",agz1);
+
+            double agz2 = Helmholtz.AG(az2,att.size());
+            result.addValue("AGZ2",agz2);
+
+
             this.results.add(result);
             index++;
             System.out.println("finished compute process of "+ att.getName().toUpperCase());
@@ -67,7 +104,7 @@ public class Runner {
     @Override
     public String toString() {
         String result = "";
-        result += "Attribute\tI\tIG\tZ1\tZ2\tUZ1\tUZ2\tUGZ1\tUGZ2\t";
+        result += "Attribute\tI\tIG\tZ1\tZ2\tUZ1\tUZ2\tUGZ1\tUGZ2\tHZ1\tHZ2\tHGZ1\tHGZ2\tGZ1\tGZ2\tGGZ1\tGGZ2\tAZ1\tAZ2\tAGZ1\tAGZ2\t";
         result += "\n";
         for (AttributeResult r:this.results) {
             result += r.toString();
