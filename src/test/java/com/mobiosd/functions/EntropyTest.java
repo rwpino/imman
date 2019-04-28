@@ -75,13 +75,13 @@ public class EntropyTest {
     @Test
     public void testZ1() {
         Attribute att = getTestAttribute();
-        double result = Entropy.Z1(att, 10);
+        double result = Z1.Z1(att, 10);
         Assert.assertEquals(result,1.0);
     }
     @Test
     public void testZ2() {
         Attribute att = getTestAttribute();
-        double result = Entropy.Z2(att, 10);
+        double result = Z2.Z2(att, 10);
         Assert.assertEquals(result,1.0);
     }
 }

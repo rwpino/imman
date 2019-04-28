@@ -54,6 +54,12 @@ public class Entropy {
         return  k? (-1)*constant*result: Common.round( (-1)*constant*result);
     }
 
+    public static double I(double entropy, boolean k ) {
+
+        double constant = k ? Common.boltzmann_constant : 1;
+        return  k? (-1)*constant*entropy: Common.round( (-1)*constant*entropy);
+    }
+
 
     public static double IG(Attribute attribute, int bin, boolean k ) {
         if(bin == 0 ) {
@@ -76,6 +82,10 @@ public class Entropy {
     public static double IG(int [] dist, boolean k ) {
         int total = Common.sum(dist);
         return  total*I(dist,k,  total);
+    }
+
+    public static double IG(double I, int total) {
+        return  total*I;
     }
 
 

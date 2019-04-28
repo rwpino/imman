@@ -3,7 +3,9 @@ package com.mobiosd;
 import com.mobiosd.entity.Commands;
 import com.mobiosd.entity.DataSet;
 import com.mobiosd.io.CommandReaders;
-import com.mobiosd.transformer.FromCSVReaderToDataSet;
+import com.mobiosd.io.IO;
+
+import java.io.IOException;
 
 
 public class Main {
@@ -12,13 +14,26 @@ public class Main {
         // write your code here
         System.out.println("Welcome to imman");
         Commands commands = CommandReaders.getCommands(args);
+        if(commands!=null) {
+            System.out.println(commands);
+            try {
 
-        FromCSVReaderToDataSet reader = new FromCSVReaderToDataSet();
-        System.out.println(commands);
-        try {
-            DataSet set = reader.generateDataSet(commands.getPath(),commands.getIgnoreFirst());
-        }catch (Exception ex) {
-            System.out.println(ex);
+                if(commands.getPath()!=null) {
+                    DataSet set = IO.generateDataSet(commands.getPath(),commands.getIgnoreFirst());
+                    Runner runner = new Runner(set, commands.getBin(), commands.getTemperature(), commands.getK());
+                    runner.run();
+                    IO.saveResults(commands.getOutputpath(), runner.toString());
+                }
+                System.out.println("finnished");
+
+            } catch (IOException ex) {
+                System.out.println(ex);
+            } catch (Exception ex) {
+                System.out.println(ex);
+                System.out.println(ex.getStackTrace());
+            }
+        }else{
+            System.out.println(Commands.commands());
         }
 
 

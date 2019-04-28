@@ -1,10 +1,11 @@
 package com.mobiosd.transformer;
 
 import com.mobiosd.entity.DataSet;
+import com.mobiosd.io.IO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-public class FromCSVReaderToDataSetTest {
-    FromCSVReaderToDataSet reader = new FromCSVReaderToDataSet();
+public class IOTest {
+    IO reader = new IO();
 
     @Test
     public void testGenerateDataSet() {

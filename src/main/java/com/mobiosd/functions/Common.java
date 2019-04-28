@@ -126,10 +126,10 @@ public class Common {
         return probdist(valueDistribution,attribute.size());
     }
 
-    public static double[] probdist(int[] dist, int length) {
-        double probDistArr[] = new double[length];
+    public static double[] probdist(int[] dist, int total) {
+        double probDistArr[] = new double[dist.length];
         for (int i = 0; i < dist.length; i++) {
-            probDistArr[i] = (double) dist[i] / length;
+            probDistArr[i] = (double) dist[i] / total;
 
         }
         return probDistArr;

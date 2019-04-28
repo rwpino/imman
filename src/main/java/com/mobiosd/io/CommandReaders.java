@@ -28,6 +28,7 @@ public class CommandReaders {
 
             if (a[0].equals("--path")) {
                 commands.setPath(a[1]);
+                commands.setOutputpath(a[1]+"_output_results.txt");
             } else if (a[0].equals("--bin")) {
                 commands.setBin(Integer.parseInt(a[1]));
             } else if (a[0].equals("--temperature")) {
@@ -39,6 +40,8 @@ public class CommandReaders {
                 commands.setK(Boolean.parseBoolean(a[1]));
             }else if (a[0].equals("--z")) {
                 commands.setZ(Boolean.parseBoolean(a[1]));
+            }else if (a[0].equals("--help")) {
+                System.out.println(commands.toString());
             }
             else {
                 throw new Error("command not found: " + a[0]);

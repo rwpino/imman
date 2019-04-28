@@ -1,13 +1,12 @@
-package com.mobiosd.transformer;
+package com.mobiosd.io;
 
 import com.mobiosd.entity.DataSet;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.BufferedReader;
-public class FromCSVReaderToDataSet {
+import java.io.*;
 
-    public DataSet generateDataSet(String stringPath, boolean ignoreFirst) throws Exception {
+public class IO {
+
+    public static DataSet generateDataSet(String stringPath, boolean ignoreFirst) throws Exception {
         DataSet set = new DataSet();
         File file = new File(stringPath);
 
@@ -50,6 +49,13 @@ public class FromCSVReaderToDataSet {
 
         reader.close();
         return set;
+    }
+
+    public static void saveResults(String outpuPath, String results ) throws IOException {
+        File file = new File(outpuPath);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(results);
+        writer.close();
     }
 
 }
